@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * @Description:
  * @Company: TOO (ps：公司名称)
- * @author: 唐
+ * @author: 唐宗
  * @date: 2021/1/20 下午5:07
  * @version: V1.0.0
  */
