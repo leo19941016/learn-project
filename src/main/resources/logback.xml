@@ -1,0 +1,33 @@
+<configuration>
+
+    <property name="PATTER" value="%blue(super_log) %-5p %d{yyyy-MM-dd HH:mm:ss} %logger [%thread] %red(%X{user}) %msg%n"/>
+
+
+    <!--控制台打印appender-->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <Pattern>${PATTER}</Pattern>
+        </encoder>
+    </appender>
+
+    <!--文件打印appender-->
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>tang.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>${PATTER}</pattern>
+        </encoder>
+    </appender>
+
+    <!--此处的log日志不传递给root则控制台不打印-->
+    <!--<logger name="org.springframework.web.servlet.handler" level="info" additivity="false"/>-->
+
+    <!--此处的log日志级别为error并向上级logger传递，故此处级别低于error的日志不打印-->
+    <!--<logger name="org.apache" level="error"/>-->
+
+
+    <root level="info">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="FILE" />
+    </root>
+</configuration>
