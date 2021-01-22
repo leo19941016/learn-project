@@ -1,9 +1,8 @@
 package com.controller;
 
-import com.threadlocal.User;
+import com.annotation.PrintMyLog;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.slf4j.MDC;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,12 +21,9 @@ public class WebController {
 
 
     @GetMapping("/printlog")
+    @PrintMyLog(expireTime = 10)
     public String log(String str) {
-        tl.set(Thread.currentThread().getName());
 
-        System.out.println(tl.get());
-
-        new User().sys();
         return "cuccess";
     }
 }
