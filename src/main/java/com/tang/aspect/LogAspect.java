@@ -1,14 +1,12 @@
-package com.aspect;
+package com.tang.aspect;
 
-import com.threadlocal.GloabSessionId;
-import org.aspectj.lang.ProceedingJoinPoint;
+import com.tang.threadlocal.GloabSessionId;
 import org.aspectj.lang.annotation.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.stereotype.Component;
-import org.springframework.validation.BindingResult;
 
 /**
  * @Description:
@@ -23,7 +21,7 @@ import org.springframework.validation.BindingResult;
 public class LogAspect {
 
 
-    @Pointcut("execution(* *(..)) && @annotation(com.annotation.PrintMyLog)")
+    @Pointcut("execution(* *(..)) && @annotation(com.tang.annotation.PrintMyLog)")
     public void point(){}
 
     @Before("point()")

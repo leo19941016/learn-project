@@ -1,6 +1,6 @@
 <configuration>
 
-    <property name="PATTER" value="%blue(super_log) %-5p %d{yyyy-MM-dd HH:mm:ss} %logger [%thread] %red(%X{user}) %msg%n"/>
+    <property name="PATTER" value="%blue(super_log) %-5p %d{yyyy-MM-dd HH:mm:ss} %logger [%thread] %red(%X{user}) %blue(%msg%n)"/>
 
 
     <!--控制台打印appender-->

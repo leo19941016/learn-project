@@ -1,8 +1,10 @@
-package com.controller;
+package com.tang.controller;
 
-import com.annotation.PrintMyLog;
+import com.tang.annotation.PrintMyLog;
+import com.tang.threadlocal.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,10 +22,13 @@ public class WebController {
     public static ThreadLocal tl = new ThreadLocal();
 
 
+    @Autowired
+    private User user;
+
     @GetMapping("/printlog")
-    @PrintMyLog(expireTime = 10)
     public String log(String str) {
 
+        user.sys();
         return "cuccess";
     }
 }
